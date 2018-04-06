@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<script name="jquery/jquery.js" library="primefaces"></script>
+	</h:head>
+	<f:view afterPhase="#{autoComplete.phaseListener}">
+		<h:form prependId="false">
+			<h1>JavaBeat Primefaces Example</h1>
+			<h2>Primefaces - AutoComplete + Ajax Behavior</h2>
+			<h:outputText value="Enter name of the player you wish to see statistics for :"/>
+			#{' '}
+			<p:autoComplete id="auto" value="#{autoComplete.players}"
+								completeMethod="#{autoComplete.complete}"
+								var="player"
+								itemValue="#{player}"
+								itemLabel="#{player.playerName}"
+								converter="#{playerConverter}"
+								multiple="true"
+								widgetVar="chandru">
+							<!-- 	widgetVar="chandru" -->
+				<p:ajax event="itemSelect" listener="#{autoComplete.handleSelect}" update="msg"></p:ajax>
+				<p:ajax event="itemUnselect" listener="#{autoComplete.handleUnSelect}"  update="msg"></p:ajax>
+				
+				<!-- <p:ajax event="change" listener="#{autoComplete.handleChangeEvent}"></p:ajax> -->
+				<p:ajax event="change" listener="#{autoComplete.handleChangeEvent}" onstart="if(PF('chandru').panel.is(':visible')) return false;"></p:ajax>
+			</p:autoComplete>
+			<br/>
+			<p:messages id="msg"/>
+		</h:form>
+	</f:view>
+</html>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+<style>
+.inputputType:hover {
+    background-color: yellow;
+	padding-top:20px;
+	padding-right:20px;
+	
+}
+</style>
+</head>
+<h:body>
+	<h:form>
+		<ui:composition template="/template/template.xhtml">
+			<ui:define name="content">
+				<h1>This is primefaces input labels</h1>
+				<p:panelGrid columns="2">
+					<p:outputLabel for="firstName" value="First Name:" />
+					<p:inputText id="firstName" value="" styleClass="inputputType"/>
+
+					<p:outputLabel for="lastName" value="Last Name:" />
+					<p:inputText id="lastName" value="" />
+
+					<p:outputLabel for="phoneNumber" value="Phone Number:" />
+					<p:inputMask id="phoneNumber" value="" mask="99 999-9999" />
+
+
+					<p:outputLabel for="email" value="Email:" />
+					<p:inputText id="email" value="" />
+
+
+					<p:outputLabel for="make" value="Make:" />
+					<p:inputText id="make" value=""></p:inputText>
+
+
+					<p:outputLabel for="model" value="Model:" />
+					<p:inputText id="model" value=""></p:inputText>
+
+
+					<p:outputLabel for="year" value="Year:" />
+					<p:inputText id="year" value=""></p:inputText>
+
+
+					<p:outputLabel for="discription" value="Discription:" />
+					<p:inputTextarea id="discription" value="" />
+
+					<p:outputLabel for="quoteDate" value="Quote Date: " />
+					<p:calendar id="quoteDate" required="true" />
+
+
+
+				</p:panelGrid>
+			</ui:define>
+		</ui:composition>
+	</h:form>
+</h:body>
+</html>
